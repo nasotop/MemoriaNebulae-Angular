@@ -1,0 +1,38 @@
+
+.accordion {
+	--bs-accordion-active-color: white;
+	--bs-accordion-active-bg: var(--primary-color);
+	--bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem var(--secondary-color);
+}
+
+/* Para WebKit (Chrome, Safari) */
+.range--low::-webkit-slider-runnable-track {
+  background: #dc3545; /* rojo */
+}
+.range--mid::-webkit-slider-runnable-track {
+  background: #ffc107; /* amarillo */
+}
+.range--high::-webkit-slider-runnable-track {
+  background: #198754; /* verde */
+}
+
+/* Para Firefox */
+.range--low::-moz-range-track {
+  background: #dc3545;
+}
+.range--mid::-moz-range-track {
+  background: #ffc107;
+}
+.range--high::-moz-range-track {
+  background: #198754;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  transition: background 0.3s ease;
+}
+
+/* …y en Firefox */
+.form-range::-moz-range-track {
+  transition: background 0.3s ease;
+}
+

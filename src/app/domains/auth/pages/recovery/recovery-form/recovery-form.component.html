@@ -1,0 +1,26 @@
+@let email = formGroupRecovery.get('email');
+<form id="recovery_form" [formGroup]="formGroupRecovery" (ngSubmit)="onSubmit()" #formRecovery>
+  <div class="mb-3">
+    <label for="recovery_mail" class="form-label">Ingresa tu correo</label>
+    <input
+      type="email"
+      name="recovery_mail"
+      id="recovery_mail"
+      class="form-control"
+      formControlName="email"
+    />
+    @if( email && email.errors && email.touched && email.invalid){
+    <app-form-error [errors]="email.errors" [isTouched]="email.touched" />
+    }
+  </div>
+
+  <div id="recovery_alert"  [class.opacity-0]="!alertState()"  [class.opacity.1]="alertState()">
+    <div class="alert alert-info alert-dismissible " role="alert">
+      <div>
+        Si el correo electrónico ingresado está registrado, se enviará un enlace
+        para restablecer la contraseña.
+      </div>
+ 
+    </div>
+  </div>
+</form>

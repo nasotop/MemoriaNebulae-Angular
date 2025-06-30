@@ -1,0 +1,11 @@
+  <div class="card my-3 mx-2">
+      <div class="card-header d-flex justify-content-between">
+        <span>{{ title() }}</span>
+        <span>
+       <img [src]="this.getIcon(moodIcon())" height="30" width="30"/>
+        </span>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ content() }}</p>
+      </div>
+    </div>

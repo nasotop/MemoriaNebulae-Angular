@@ -1,0 +1,20 @@
+<main class="container min-vh-100 vh-auto">
+  <div class="row d-block h-100 py-3 justify-content-center bg-light">
+    <h2 class="ms-4 text-decoration-underline">Tu historia</h2>
+
+    <div class="col-12 mb-4 mt-4">
+      <app-story-form (submitted)="postHandler($event)" />
+    </div>
+
+    <div class="col-12 w-100 p-0">
+      @for (item of usersPost(); track $index) {
+
+      <app-story-card
+        [title]="item.title!"
+        [moodIcon]="item.mood"
+        [content]="item.content!"
+      />
+      }
+    </div>
+  </div>
+</main>

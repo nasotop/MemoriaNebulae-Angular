@@ -1,0 +1,41 @@
+@let password = form.get('password'); @let email = form.get('email');
+
+<form id="login_form" [formGroup]="form" (ngSubmit)="onSubmit()" #loginFormEl>
+  <div class="mb-3">
+    <label for="user_mail" class="form-label">Correo</label>
+    <input
+      type="email"
+      name="user_mail"
+      id="user_mail"
+      class="form-control"
+      formControlName="email"
+    />
+    @if( email && email.errors && email.touched && email.invalid){
+    <app-form-error [errors]="email.errors" [isTouched]="email.touched" />
+    }
+  </div>
+  <div class="mb-3">
+    <label for="user_pass" class="form-label">Contraseña</label>
+    <input
+      type="password"
+      name="user_pass"
+      id="user_pass"
+      class="form-control"
+      formControlName="password"
+    />
+    @if( password && password.errors && password.touched && password.invalid){
+    <app-form-error [errors]="password.errors" [isTouched]="password.touched" />
+    }
+    <p class="mt-2">
+      ¿Problemas para entrar al calabozo?
+      <app-link
+        [model]="{
+          Href: 'auth/recovery',
+          ClassList: ['card-link'],
+          Text: 'Recupera tu contraseña',
+          IsTooltip: false
+        }"
+      />
+    </p>
+  </div>
+</form>

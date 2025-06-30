@@ -1,0 +1,145 @@
+@let password = registerForm.get('password'); @let email =
+registerForm.get('email'); @let names = registerForm.get('names'); @let
+lastNames = registerForm.get('lastNames'); @let username =
+registerForm.get('username'); @let birthDate = registerForm.get('birthDate');
+@let confirmPassword = registerForm.get('confirmPassword');
+<form id="register_form" [formGroup]="registerForm">
+  <div class="row mb-3">
+    <h5>Cuentanos quien eres</h5>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <label for="register_name" class="form-label">Nombres</label>
+      <input
+        type="text"
+        class="form-control"
+        id="register_name"
+        formControlName="names"
+      />
+      @if( names && names.errors && names.touched && names.invalid){
+      <app-form-error [errors]="names.errors" [isTouched]="names.touched" />
+      }
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <label for="register_lastname" class="form-label">Apellidos</label>
+      <input
+        type="text"
+        class="form-control"
+        id="register_lastname"
+        formControlName="lastNames"
+      />
+      @if( lastNames && lastNames.errors && lastNames.touched &&
+      lastNames.invalid){
+      <app-form-error
+        [errors]="lastNames.errors"
+        [isTouched]="lastNames.touched"
+      />
+      }
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <label for="register_lastname" class="form-label"
+        >Fecha de nacimiento</label
+      >
+      <input
+        type="date"
+        class="form-control"
+        id="register_birthdate"
+        formControlName="birthDate"
+        [max]="maxDateString"
+      />
+      @if( birthDate && birthDate.errors && birthDate.touched &&
+      birthDate.invalid){
+      <app-form-error
+        [errors]="birthDate.errors"
+        [isTouched]="birthDate.touched"
+      />
+      }
+    </div>
+
+    <div class="col-12">
+      <label for="register_username" class="form-label"
+        >Nombre de aventurero</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="register_username"
+        aria-describedby="register_username_help"
+        formControlName="username"
+      />
+      @if( username && username.errors && username.touched && username.invalid){
+      <app-form-error
+        [errors]="username.errors"
+        [isTouched]="username.touched"
+      />
+      }
+      <div id="register_username_help" class="form-text">
+        Todo aventurero tiene un apodo, cuentanos el tuyo
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <h5>Tus credenciales para el gremio</h5>
+
+    <div class="col-12">
+      <label for="register_mail" class="form-label">Correo</label>
+      <input
+        type="email"
+        class="form-control"
+        id="register_mail"
+        aria-describedby="register_mail_help"
+        formControlName="email"
+      />
+      @if( email && email.errors && email.touched && email.invalid){
+      <app-form-error [errors]="email.errors" [isTouched]="email.touched" />
+      }
+      <div id="register_mail_help" class="form-text">
+        Tu correo nunca saldrá de nuestro gremio
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <label for="register_pass" class="form label">Contraseña</label>
+      <input
+        type="password"
+        name="register_pass"
+        id="register_pass"
+        class="form-control"
+        formControlName="password"
+      />
+      @if( password && password.errors && password.touched && password.invalid){
+      <app-form-error
+        [errors]="password.errors"
+        [isTouched]="password.touched"
+      />
+      }
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <label for="register_pass_validation" class="form label"
+        >Repita Contraseña</label
+      >
+      <input
+        type="password"
+        name="register_pass_validation"
+        id="register_pass_validation"
+        class="form-control"
+        formControlName="confirmPassword"
+      />
+      @if(registerForm.hasError('passwordmismatch') && confirmPassword &&
+      confirmPassword.touched){
+      <span class="fw-bold text-danger">
+        Las contraseñas deben ser iguales
+      </span>
+      } @if( confirmPassword && confirmPassword.errors &&
+      confirmPassword.touched && confirmPassword.invalid){
+      <app-form-error
+        [errors]="confirmPassword.errors"
+        [isTouched]="confirmPassword.touched"
+      />
+      }
+    </div>
+  </div>
+  <div class="d-flex justify-content-between">
+    @for (item of footerLinks; track $index) {
+    <app-link [model]="item" (clickEvent)="registerButtonHandler($event)" />
+    }
+  </div>
+</form>

@@ -1,0 +1,10 @@
+.img-background {
+	background-image: url("../../../../../assets/images/login-bg.jpg");
+	background-size: cover;
+	background-position: center;
+}
+.background-blur {
+	backdrop-filter: blur(12px);
+}
+
+

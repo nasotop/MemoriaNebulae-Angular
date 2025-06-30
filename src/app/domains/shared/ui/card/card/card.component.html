@@ -1,0 +1,10 @@
+<div class="card bg-body-secondary p-0 w-100">
+  @if(title()){
+  <h5 class="card-header text-center">{{ title() }}</h5>
+  }
+  <div class="card-body">
+    <ng-content />
+  </div>
+
+  <app-card-footer classList="card-footer d-flex justify-content-between" [footerLinks]="footerLinks()" (clickEvent)="buttonHandler($event)"/>
+</div>

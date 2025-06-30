@@ -1,0 +1,10 @@
+<a
+    [attr.id]="model().Id ?? null"
+    [href]="model().Href??null"
+    [class]="model().ClassList"
+    [attr.data-bs-toggle]="model().IsTooltip ? 'tooltip' : null"
+    [attr.title]="model().IsTooltip ? model().Title : null"
+    (click)="handleClick($event)"
+  >
+    {{ model().Text }}
+  </a>

@@ -1,0 +1,93 @@
+@let title = form.get('title'); @let content = form.get('content');
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseOne"
+        aria-expanded="true"
+        aria-controls="collapseOne"
+      >
+        ¿Tienes algo en mente? ¡Cuéntanoslo!
+      </button>
+    </h2>
+    <div
+      id="collapseOne"
+      class="accordion-collapse collapse show"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <form id="post_form" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="mb-2">
+            <label for="post_title">
+              <h5 class="mb-3">Titulo de tu historia</h5>
+            </label>
+            <input
+              class="form-control"
+              type="text"
+              name="post_title"
+              id="post_title"
+              placeholder="Resume tu entrada..."
+              formControlName="title"
+            />
+            @if( title && title.errors && title.touched && title.invalid){
+            <app-form-error
+              [errors]="title.errors"
+              [isTouched]="title.touched"
+            />
+            }
+          </div>
+          <div class="mb-2">
+            <textarea
+              class="form-control comment-input"
+              rows="3"
+              id="post_content"
+              name="post_content"
+              placeholder="Narra tu historia..."
+              formControlName="content"
+            ></textarea>
+            @if( content && content.errors && content.touched &&
+            content.invalid){
+            <app-form-error
+              [errors]="content.errors"
+              [isTouched]="content.touched"
+            />
+            }
+          </div>
+          <div class="mb-3">
+            <label for="post_mood" class="form-label"
+              >Cual es tu estado de animo hoy</label
+            >
+            
+            <input
+              type="range"
+              class="form-range range--high"
+              min="0"
+              max="5"
+              value="5"
+              id="post_mood"
+              [class.range--low]="mood() < 2"
+              [class.range--mid]="mood() >= 2 && mood() < 4"
+              [class.range--high]="mood() >= 4"
+              (change)="onMoodChange($event)"
+              formControlName="mood"
+            />
+          </div>
+
+          <div class="mt-3 text-end">
+            <button
+              id="post_submit"
+              class="btn btn-primary text-white"
+              type="submit"
+            >
+              Postear
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

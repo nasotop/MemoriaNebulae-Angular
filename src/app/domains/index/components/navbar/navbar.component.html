@@ -1,0 +1,20 @@
+<nav class="navbar-glass navbar fixed-top navbar-expand-lg">
+  <div class="container-fluid">
+    <app-navbar-brand
+      href="index"
+      logoSrc="/assets/images/nav-icon-2.png"
+      logoAlt="Logo de la app"
+      text="Memoria Nebulae"
+    />
+
+    <app-navbar-toggler targetId="navbarNavDropdown" />
+
+    <app-navbar-collapse
+      id="navbarNavDropdown"
+      class="collapse justify-content-end navbar-collapse"
+    >
+      <app-navbar-link href="profile" label="Perfil" />
+      <app-navbar-link href="auth/login" label="Salir" />
+    </app-navbar-collapse>
+  </div>
+</nav>

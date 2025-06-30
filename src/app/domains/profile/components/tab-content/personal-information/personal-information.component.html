@@ -1,0 +1,96 @@
+@let profile_name= form.get('profile_name'); @let profile_last_name=
+form.get('profile_last_name'); @let profile_username=
+form.get('profile_username'); @let profile_bio= form.get('profile_bio');
+<div class="p-4">
+  <div class="mb-4">
+    <h5 class="mb-4">Informacion Personal</h5>
+    <form
+      id="profile_personal_info_form"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="profile_name" class="form-label">Nombres</label>
+          <input
+            id="profile_name"
+            name="profile_name"
+            type="text"
+            class="form-control"
+            formControlName="profile_name"
+          />
+          @if( profile_name && profile_name.errors && profile_name.touched &&
+          profile_name.invalid){
+          <app-form-error
+            [errors]="profile_name.errors"
+            [isTouched]="profile_name.touched"
+          />
+          }
+        </div>
+        <div class="col-md-6">
+          <label for="profile_last_name" class="form-label">Apellidos</label>
+          <input
+            id="profile_last_name"
+            name="profile_last_name"
+            formControlName="profile_last_name"
+            type="text"
+            class="form-control"
+          />
+          @if( profile_last_name && profile_last_name.errors &&
+          profile_last_name.touched && profile_last_name.invalid){
+          <app-form-error
+            [errors]="profile_last_name.errors"
+            [isTouched]="profile_last_name.touched"
+          />
+          }
+        </div>
+        <div class="col-md-12">
+          <label for="profile_username" class="form-label"
+            >Nombre de usuario</label
+          >
+          <input
+            id="profile_username"
+            name="profile_username"
+            formControlName="profile_username"
+            type="text"
+            class="form-control"
+          />
+          @if( profile_username && profile_username.errors &&
+          profile_username.touched && profile_username.invalid){
+          <app-form-error
+            [errors]="profile_username.errors"
+            [isTouched]="profile_username.touched"
+          />
+          }
+        </div>
+
+        <div class="col-12">
+          <label for="profile_bio" class="form-label">Describete!</label>
+          <textarea
+            id="profile_bio"
+            name="profile_bio"
+            formControlName="profile_bio"
+            class="form-control"
+            rows="4"
+          ></textarea>
+          @if( profile_bio && profile_bio.errors && profile_bio.touched &&
+          profile_bio.invalid){
+          <app-form-error
+            [errors]="profile_bio.errors"
+            [isTouched]="profile_bio.touched"
+          />
+          }
+        </div>
+        <div class="col-md-12 d-flex justify-content-end">
+          <button
+            id="profile_personal_info_submit"
+            class="btn btn-primary"
+            type="submit"
+          >
+            Guardar cambios
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

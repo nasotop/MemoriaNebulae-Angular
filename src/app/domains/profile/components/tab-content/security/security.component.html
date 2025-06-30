@@ -1,0 +1,94 @@
+@let profile_confirm_password = form.get('profile_confirm_password'); @let
+profile_mail = form.get('profile_mail'); @let profile_password =
+form.get('profile_password');
+<div class="p-4">
+  <!-- Personal Information -->
+  <div class="mb-4">
+    <h5 class="mb-4">Seguridad</h5>
+    <form id="profile_security_form" [formGroup]="form">
+      <div class="row g-3">
+        <div class="col-md-12">
+          <label for="profile_mail" class="form-label"
+            >Correo Electronico</label
+          >
+          <input
+            id="profile_mail"
+            name="profile_mail"
+            type="email"
+            class="form-control"
+            formControlName="profile_mail"
+          />
+          @if( profile_mail && profile_mail.errors && profile_mail.touched &&
+          profile_mail.invalid){
+          <app-form-error
+            [errors]="profile_mail.errors"
+            [isTouched]="profile_mail.touched"
+          />
+          }
+        </div>
+        <div class="col-md-6">
+          <label for="profile_password" class="form-label">Contraseña</label>
+          <input
+            id="profile_password"
+            name="profile_password"
+            type="password"
+            class="form-control"
+            formControlName="profile_password"
+          />
+          @if( profile_password && profile_password.errors &&
+          profile_password.touched && profile_password.invalid){
+          <app-form-error
+            [errors]="profile_password.errors"
+            [isTouched]="profile_password.touched"
+          />
+          }
+        </div>
+        <div class="col-md-6">
+          <label for="profile_confirm_password" class="form-label"
+            >Repita contraseña</label
+          >
+          <input
+            id="profile_confirm_password"
+            name="profile_confirm_password"
+            type="password"
+            class="form-control"
+            formControlName="profile_confirm_password"
+          />
+          @if(form.hasError('passwordmismatch') && form && form.touched){
+          <span class="fw-bold text-danger">
+            Las contraseñas deben ser iguales
+          </span>
+          } @if( profile_confirm_password && profile_confirm_password.errors &&
+          profile_confirm_password.touched && profile_confirm_password.invalid){
+          <app-form-error
+            [errors]="profile_confirm_password.errors"
+            [isTouched]="profile_confirm_password.touched"
+          />
+          }
+        </div>
+        <div class="col-md-12 custom-control custom-checkbox">
+          <input
+            type="checkbox"
+            name="profile_change_password"
+            id="profile_change_password"
+            class="custom-control-input"
+            formControlName="profile_change_password"
+            (click)="changePassword($event)"
+          />
+          <label for="profile_change_password" class="custom-control-label"
+            >¿Quieres cambiar tu contraseña?</label
+          >
+        </div>
+        <div class="col-md-12 d-flex justify-content-end">
+          <button
+            id="profile_security_submit"
+            class="btn btn-primary"
+            (click)="onSubmit()"
+          >
+            Guardar cambios
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

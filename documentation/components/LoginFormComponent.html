@@ -1,0 +1,629 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>memoria-nebulae-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">memoria-nebulae-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LoginFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/domains/auth/pages/login/login-form/login-form.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login-form</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/LinkComponent.html" target="_self" >LinkComponent</a></code>
+                            <code>ReactiveFormsModule</code>
+                                <code><a href="../components/FormErrorComponent.html" target="_self" >FormErrorComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login-form.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./login-form.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#formBuilder" >formBuilder</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#router" >router</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#triggerSubmit" >triggerSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/app/domains/auth/pages/login/login-form/login-form.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="triggerSubmit"></a>
+                    <span class="name">
+                        <span ><b>triggerSubmit</b></span>
+                        <a href="#triggerSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>triggerSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/domains/auth/pages/login/login-form/login-form.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.formBuilder.group({
+    email: [&#x27;&#x27;, [Validators.email, Validators.required]],
+    password: [&#x27;&#x27;, [Validators.required]],
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/domains/auth/pages/login/login-form/login-form.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formBuilder"></a>
+                    <span class="name">
+                        <span ><b>formBuilder</b></span>
+                        <a href="#formBuilder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/domains/auth/pages/login/login-form/login-form.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/domains/auth/pages/login/login-form/login-form.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, inject, ViewChild } from &#x27;@angular/core&#x27;;
+import { LinkComponent } from &#x27;../../../../shared/ui/link/link.component&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { FormBuilder, Validators } from &#x27;@angular/forms&#x27;;
+import { FormErrorComponent } from &#x27;../../../../shared/ui/form/form-error/form-error.component&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { UserModel } from &#x27;../../../../../model/user.model&#x27;;
+@Component({
+  selector: &#x27;app-login-form&#x27;,
+  imports: [LinkComponent, ReactiveFormsModule, FormErrorComponent],
+  templateUrl: &#x27;./login-form.component.html&#x27;,
+  styleUrl: &#x27;./login-form.component.css&#x27;,
+})
+export class LoginFormComponent {
+  private router &#x3D; inject(Router);
+
+  formBuilder &#x3D; inject(FormBuilder);
+
+  form &#x3D; this.formBuilder.group({
+    email: [&#x27;&#x27;, [Validators.email, Validators.required]],
+    password: [&#x27;&#x27;, [Validators.required]],
+  });
+
+  onSubmit() {
+    if (!this.form.valid) {
+      return this.form.markAllAsTouched();
+    }
+
+    const email &#x3D; this.form.get(&#x27;email&#x27;)?.value;
+    const pass &#x3D; this.form.get(&#x27;password&#x27;)?.value;
+
+    const usuariosJson &#x3D; localStorage.getItem(&#x27;users&#x27;);
+
+    if (!usuariosJson) return;
+
+    const usuariosList &#x3D; JSON.parse(usuariosJson) as UserModel[];
+
+    const usuarioActual &#x3D; usuariosList.filter(
+      (f) &#x3D;&gt; f.email &#x3D;&#x3D;&#x3D; email &amp;&amp; f.password &#x3D;&#x3D; pass
+    )[0];
+
+    if (!usuarioActual) return;
+
+    localStorage.setItem(&#x27;actualUser&#x27;, JSON.stringify(usuarioActual));
+
+    if (usuarioActual.isAdmin) return this.router.navigate([&#x27;index-admin&#x27;]);
+
+    return this.router.navigate([&#x27;index&#x27;]);
+  }
+
+  triggerSubmit() {
+    this.onSubmit();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@let password &#x3D; form.get(&#x27;password&#x27;); @let email &#x3D; form.get(&#x27;email&#x27;);
+
+&lt;form id&#x3D;&quot;login_form&quot; [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; #loginFormEl&gt;
+  &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+    &lt;label for&#x3D;&quot;user_mail&quot; class&#x3D;&quot;form-label&quot;&gt;Correo&lt;/label&gt;
+    &lt;input
+      type&#x3D;&quot;email&quot;
+      name&#x3D;&quot;user_mail&quot;
+      id&#x3D;&quot;user_mail&quot;
+      class&#x3D;&quot;form-control&quot;
+      formControlName&#x3D;&quot;email&quot;
+    /&gt;
+    @if( email &amp;&amp; email.errors &amp;&amp; email.touched &amp;&amp; email.invalid){
+    &lt;app-form-error [errors]&#x3D;&quot;email.errors&quot; [isTouched]&#x3D;&quot;email.touched&quot; /&gt;
+    }
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+    &lt;label for&#x3D;&quot;user_pass&quot; class&#x3D;&quot;form-label&quot;&gt;Contraseña&lt;/label&gt;
+    &lt;input
+      type&#x3D;&quot;password&quot;
+      name&#x3D;&quot;user_pass&quot;
+      id&#x3D;&quot;user_pass&quot;
+      class&#x3D;&quot;form-control&quot;
+      formControlName&#x3D;&quot;password&quot;
+    /&gt;
+    @if( password &amp;&amp; password.errors &amp;&amp; password.touched &amp;&amp; password.invalid){
+    &lt;app-form-error [errors]&#x3D;&quot;password.errors&quot; [isTouched]&#x3D;&quot;password.touched&quot; /&gt;
+    }
+    &lt;p class&#x3D;&quot;mt-2&quot;&gt;
+      ¿Problemas para entrar al calabozo?
+      &lt;app-link
+        [model]&#x3D;&quot;{
+          Href: &#x27;auth/recovery&#x27;,
+          ClassList: [&#x27;card-link&#x27;],
+          Text: &#x27;Recupera tu contraseña&#x27;,
+          IsTooltip: false
+        }&quot;
+      /&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@let password = form.get(\'password\'); @let email = form.get(\'email\');<form id="login_form" [formGroup]="form" (ngSubmit)="onSubmit()" #loginFormEl>  <div class="mb-3">    <label for="user_mail" class="form-label">Correo</label>    <input      type="email"      name="user_mail"      id="user_mail"      class="form-control"      formControlName="email"    />    @if( email && email.errors && email.touched && email.invalid){    <app-form-error [errors]="email.errors" [isTouched]="email.touched" />    }  </div>  <div class="mb-3">    <label for="user_pass" class="form-label">Contraseña</label>    <input      type="password"      name="user_pass"      id="user_pass"      class="form-control"      formControlName="password"    />    @if( password && password.errors && password.touched && password.invalid){    <app-form-error [errors]="password.errors" [isTouched]="password.touched" />    }    <p class="mt-2">      ¿Problemas para entrar al calabozo?      <app-link        [model]="{          Href: \'auth/recovery\',          ClassList: [\'card-link\'],          Text: \'Recupera tu contraseña\',          IsTooltip: false        }"      />    </p>  </div></form></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthLayoutComponent', 'selector': 'app-auth-layout'},{'name': 'AvatarComponent', 'selector': 'app-avatar'},{'name': 'CardComponent', 'selector': 'app-card'},{'name': 'CardFooterComponent', 'selector': 'app-card-footer'},{'name': 'FormErrorComponent', 'selector': 'app-form-error'},{'name': 'IndexComponent', 'selector': 'app-index'},{'name': 'LinkComponent', 'selector': 'app-link'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'MainContentComponent', 'selector': 'app-main-content'},{'name': 'NavbarBrandComponent', 'selector': 'app-navbar-brand'},{'name': 'NavbarCollapseComponent', 'selector': 'app-navbar-collapse'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavbarLinkComponent', 'selector': 'app-navbar-link'},{'name': 'NavbarTogglerComponent', 'selector': 'app-navbar-toggler'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RecoveryComponent', 'selector': 'app-recovery'},{'name': 'RecoveryFormComponent', 'selector': 'app-recovery-form'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'SecurityComponent', 'selector': 'app-security'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'StoryCardComponent', 'selector': 'app-story-card'},{'name': 'StoryContainerComponent', 'selector': 'app-story-container'},{'name': 'StoryFormComponent', 'selector': 'app-story-form'},{'name': 'TabContentComponent', 'selector': 'app-tab-content'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LoginFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

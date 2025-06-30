@@ -1,0 +1,6 @@
+@for (item of errors()|keyvalue; track $index) {
+<span class="fw-bold text-danger">
+  {{ getErrorMessage(item.key) }}
+</span>
+<br />
+}

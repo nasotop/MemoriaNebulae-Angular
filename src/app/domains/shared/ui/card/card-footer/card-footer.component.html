@@ -1,0 +1,9 @@
+    <div [class]="classList()">
+      
+      @for (item of footerLinks(); track $index) {
+
+            <app-link [model]="item" (clickEvent)="buttonHandler($event)"/>
+      }
+
+     
+    </div>
