@@ -39,11 +39,9 @@ describe('PersonalInformationComponent', () => {
   });
 
   it('should update localStorage on valid form submit', () => {
-    // Setup initial users list
     const users = [{ ...testUser }];
     localStorage.setItem('users', JSON.stringify(users));
 
-    // Change form values
     component.form.get('profile_name')!.setValue('Bob');
     component.form.get('profile_last_name')!.setValue('Jones');
     component.form.get('profile_username')!.setValue('bobjones');
@@ -52,14 +50,12 @@ describe('PersonalInformationComponent', () => {
     expect(component.form.valid).toBeTrue();
     component.onSubmit();
 
-    // Verify actualUser updated
     const actualUser = JSON.parse(localStorage.getItem('actualUser')!);
     expect(actualUser.names).toBe('Bob');
     expect(actualUser.lastNames).toBe('Jones');
     expect(actualUser.username).toBe('bobjones');
     expect(actualUser.bio).toBe('New bio');
 
-    // Verify users list updated
     const updatedUsers = JSON.parse(localStorage.getItem('users')!);
     expect(updatedUsers.length).toBe(1);
     expect(updatedUsers[0].names).toBe('Bob');

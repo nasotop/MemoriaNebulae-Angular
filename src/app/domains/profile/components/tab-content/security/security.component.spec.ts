@@ -35,28 +35,23 @@ describe('SecurityComponent', () => {
     expect(pwdControl.disabled).toBeTrue();
     expect(confirmControl.disabled).toBeTrue();
 
-    // Simulate checking the 'change password' checkbox
     component.changePassword({ target: { checked: true } } as any);
     expect(pwdControl.disabled).toBeFalse();
     expect(confirmControl.disabled).toBeFalse();
 
-    // Simulate unchecking
     component.changePassword({ target: { checked: false } } as any);
     expect(pwdControl.disabled).toBeTrue();
     expect(confirmControl.disabled).toBeTrue();
   });
 
   it('should update localStorage entries on valid form submit', () => {
-    // Setup existing users in localStorage
     const users = [{ ...testUser }];
     localStorage.setItem('users', JSON.stringify(users));
 
-    // Enable password change in form
     component.form.get('profile_change_password')!.setValue(true);
     component.form.get('profile_password')!.enable();
     component.form.get('profile_confirm_password')!.enable();
 
-    // Set new values
     component.form.get('profile_mail')!.setValue('new@example.com');
     component.form.get('profile_password')!.setValue('newPass123');
     component.form.get('profile_confirm_password')!.setValue('newPass123');
@@ -65,12 +60,10 @@ describe('SecurityComponent', () => {
 
     component.onSubmit();
 
-    // Verify actualUser in localStorage
     const actualUser = JSON.parse(localStorage.getItem('actualUser')!);
     expect(actualUser.email).toBe('new@example.com');
     expect(actualUser.password).toBe('newPass123');
 
-    // Verify users list updated in localStorage
     const updatedUsers = JSON.parse(localStorage.getItem('users')!);
     expect(updatedUsers[0].email).toBe('new@example.com');
     expect(updatedUsers[0].password).toBe('newPass123');
