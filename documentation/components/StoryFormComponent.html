@@ -120,6 +120,25 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>  selector: &#39;app-story-form&#39;,
+  standalone: true,
+  imports: [ReactiveFormsModule, FormErrorComponent],
+  templateUrl: &#39;./story-form.component.html&#39;,
+  styleUrls: [&#39;./story-form.component.css&#39;]
+})</p>
+<p>Componente de formulario de historia que emite un evento con los datos ingresados al hacer submit.</p>
+<ul>
+<li>Campos: title (required), content (required), mood (range signal inicial 5).</li>
+<li>Emite &#39;submitted&#39; con modelo StoryPostModel.</li>
+<li>Resetea el formulario y el estado de ánimo tras el envío.</li>
+<li>Maneja el cambio del mood mediante onMoodChange().</li>
+</ul>
+
+    </p>
 
 
 
@@ -262,7 +281,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:30</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -295,8 +314,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="36"
-                                    class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:36</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -362,8 +381,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -407,7 +426,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -432,7 +451,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -457,7 +476,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/domains/index/components/story/story-form/story-form.component.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -475,7 +494,23 @@ import { FormBuilder, ReactiveFormsModule, Validators } from &#x27;@angular/form
 import { FormErrorComponent } from &#x27;../../../../shared/ui/form/form-error/form-error.component&#x27;;
 import { StoryPostModel } from &#x27;../../../../../model/story-post.model&#x27;;
 
-
+/**
+ * @Component({
+ *   selector: &#x27;app-story-form&#x27;,
+ *   standalone: true,
+ *   imports: [ReactiveFormsModule, FormErrorComponent],
+ *   templateUrl: &#x27;./story-form.component.html&#x27;,
+ *   styleUrls: [&#x27;./story-form.component.css&#x27;]
+ * })
+ *
+ * @class StoryFormComponent
+ * @description
+ * Componente de formulario de historia que emite un evento con los datos ingresados al hacer submit.
+ * - Campos: title (required), content (required), mood (range signal inicial 5).
+ * - Emite &#x27;submitted&#x27; con modelo StoryPostModel.
+ * - Resetea el formulario y el estado de ánimo tras el envío.
+ * - Maneja el cambio del mood mediante onMoodChange().
+ */
 @Component({
   selector: &#x27;app-story-form&#x27;,
   imports: [ReactiveFormsModule, FormErrorComponent],
