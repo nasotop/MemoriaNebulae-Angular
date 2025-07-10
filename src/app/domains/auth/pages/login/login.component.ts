@@ -29,7 +29,7 @@ export class LoginComponent {
     this.httpClient
       .get<UserModel[]>('https://nasotop.github.io/Archivos-JSON/Usuarios.json')
       .subscribe((response) => {
-        debugger;
+        
         const usuarios = response;
         localStorage.setItem('users', JSON.stringify(usuarios));
       });
