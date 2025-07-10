@@ -6,6 +6,7 @@ import { LinkModel } from '../../../shared/ui/link/model/link.model';
 import { Router } from '@angular/router';
 import { json } from 'stream/consumers';
 import { UserModel } from '../../../../model/user.model';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   imports: [CardComponent, LoginFormComponent],
@@ -13,41 +14,25 @@ import { UserModel } from '../../../../model/user.model';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private httpClient: HttpClient) {}
   @ViewChild(LoginFormComponent) loginFormComponent!: LoginFormComponent;
 
   ngOnInit() {
+
+
     const usuariosActuales = localStorage.getItem(
       'users'
     ) as unknown as UserModel[];
 
     if (usuariosActuales != null && usuariosActuales.length != 0) return;
 
-    const usuarios = [
-      {
-        email: 'user@user.cl',
-        password: 'user1',
-        username: 'theuser',
-        names: 'user',
-        lastNames: 'lastnames',
-        birthDate: '2000-01-01',
-        bio: 'Lorem ipsum dolor sit amet consectetur adipiscing elit cras facilisis dis hendrerit, bibendum nisl augue nibh ac venenatis vel nulla euismod. Potenti curae auctor imperdiet purus augue proin cras, euismod sed duis risus ligula felis semper montes',
-        isAdmin: false,
-        id:1
-      },
-      {
-        email: 'admin@admin.cl',
-        password: 'admin1',
-        username: 'theadmin',
-        names: 'admin',
-        lastNames: 'lastnames',
-        birthDate: '2000-01-01',
-        bio: 'Lorem ipsum dolor sit amet consectetur adipiscing elit cras facilisis dis hendrerit, bibendum nisl augue nibh ac venenatis vel nulla euismod. Potenti curae auctor imperdiet purus augue proin cras, euismod sed duis risus ligula felis semper montes',
-        isAdmin: true,
-        id:2
-      },
-    ];
-    localStorage.setItem('users', JSON.stringify(usuarios));
+    this.httpClient
+      .get<UserModel[]>('https://nasotop.github.io/Archivos-JSON/Usuarios.json')
+      .subscribe((response) => {
+        debugger;
+        const usuarios = response;
+        localStorage.setItem('users', JSON.stringify(usuarios));
+      });
   }
 
   loginButtonHandler(payload: { link: LinkModel; event: MouseEvent }) {

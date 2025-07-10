@@ -40,6 +40,7 @@ export class LoginFormComponent {
   });
 
   onSubmit() {
+    debugger
     if (!this.form.valid) {
       return this.form.markAllAsTouched();
     }
