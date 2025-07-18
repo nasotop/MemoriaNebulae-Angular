@@ -45,7 +45,6 @@ export class SecurityComponent {
     if (!this.form.valid) return this.form.markAllAsTouched();
 
     var edited = this.form.value;
-    console.log(edited);
     this.userInfo().email = edited?.profile_mail;
     if (edited?.profile_change_password) {
       this.userInfo().password = edited?.profile_password;

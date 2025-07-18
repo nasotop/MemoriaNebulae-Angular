@@ -13,7 +13,4 @@ import { UserModel } from '../../../../model/user.model';
 export class TabContentComponent {
   userInfo = input.required<UserModel>();
 
-  ngOnInit() {
-    console.log(this.userInfo());
-  }
 }

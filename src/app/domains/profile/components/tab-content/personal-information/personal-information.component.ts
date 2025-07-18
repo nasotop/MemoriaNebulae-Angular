@@ -58,7 +58,6 @@ export class PersonalInformationComponent {
       u.id === this.userInfo().id ? this.userInfo() : u
     );
 
-    console.log(updated);
     localStorage.setItem('users', JSON.stringify(updated));
   }
 }

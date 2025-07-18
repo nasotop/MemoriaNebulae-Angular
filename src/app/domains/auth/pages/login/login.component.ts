@@ -4,13 +4,13 @@ import { LinkComponent } from '../../../shared/ui/link/link.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { LinkModel } from '../../../shared/ui/link/model/link.model';
 import { Router } from '@angular/router';
-import { json } from 'stream/consumers';
 import { UserModel } from '../../../../model/user.model';
 import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   imports: [CardComponent, LoginFormComponent],
   templateUrl: './login.component.html',
+  standalone: true,
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
